@@ -67,5 +67,8 @@ INSTANCE_ZONE="/"$(curl http://metadata.google.internal/computeMetadata/v1/insta
 INSTANCE_ZONE="${INSTANCE_ZONE##/*/}"
 readonly INSTANCE_PROJECT_NAME=$(curl http://metadata.google.internal/computeMetadata/v1/project/project-id -H "Metadata-Flavor: Google")
 
-gcloud --quiet compute instances delete "${INSTANCE_NAME}" --zone "${INSTANCE_ZONE}" --project "${INSTANCE_PROJECT_NAME}"
+# Delete instance VM
+# gcloud --quiet compute instances delete "${INSTANCE_NAME}" --zone "${INSTANCE_ZONE}" --project "${INSTANCE_PROJECT_NAME}"
 
+# Stop instance VM
+gcloud compute instances stop "${INSTANCE_NAME}" --zone "${INSTANCE_ZONE}" --project "${INSTANCE_PROJECT_NAME}"
