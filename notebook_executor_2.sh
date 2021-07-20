@@ -46,7 +46,7 @@ if [[ -z "${PARAMETERS_GCS_FILE}" ]]; then
 	echo "#################### Arquivo notebook_executor_start.sh - Inicio CONDICIONAL if [[ -z \"${PARAMETERS_GCS_FILE}\" ]]; then #################### "
 
   echo "No input parameters present"
-  /opt/conda/bin/	 ${INPUT_NOTEBOOK_GCS_FILE} ${TEMPORARY_NOTEBOOK_PATH} --log-output || PAPERMILL_EXIT_CODE=1
+  /opt/conda/bin/papermill	 ${INPUT_NOTEBOOK_GCS_FILE} ${TEMPORARY_NOTEBOOK_PATH} --log-output || PAPERMILL_EXIT_CODE=1
   PAPERMILL_RESULTS=$?
   echo "#################### Arquivo notebook_executor_start.sh - imprimindo VARIAVEL PAPERMILL_RESULTS: ${PAPERMILL_RESULTS} #################### "
 else
